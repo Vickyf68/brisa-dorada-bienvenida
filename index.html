@@ -3,567 +3,484 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brisa Dorada • Libro Digital del Huésped</title>
-  <meta name="theme-color" content="#0b0b0e" />
+  <title>Brisa Dorada • Guía del Huésped</title>
+  <meta name="theme-color" content="#07070a" />
+  <meta name="description" content="Brisa Dorada • Experiencia tranquila y exclusiva en Baños de Agua Santa."/>
   <style>
     :root {
-      --bg:#07070a;
+      --bg:#050509;
       --card:#0f1016;
       --line:rgba(255,255,255,.10);
       --txt:#f4f1e8;
       --muted:rgba(244,241,232,.70);
-      --gold1:#b8872d;
-      --gold2:#f2d27a;
-      --gold3:#8a631d;
-      --ok:#2bd576;
-      --warn:#ffcc66;
-      --danger:#ff5a6a;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius:18px;
+      --gold:#d7b35a;
+      --gold2:#b8872d;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --r:20px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
-      background: radial-gradient(1200px 700px at 10% 0%, rgba(242,210,122,.12), transparent 55%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(184,135,45,.10), transparent 55%),
-                  linear-gradient(180deg, #050509, var(--bg));
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(215,179,90,.12), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(184,135,45,.10), transparent 55%),
+        linear-gradient(180deg, #050509, var(--bg));
       color:var(--txt);
     }
     header{
       position:sticky; top:0; z-index:20;
       backdrop-filter: blur(12px);
-      background: rgba(7,7,10,.72);
+      background: rgba(5,5,9,.70);
       border-bottom: 1px solid var(--line);
     }
-    .wrap{max-width:1040px; margin:0 auto; padding:14px 16px}
-    .topbar{display:flex; gap:14px; align-items:center; justify-content:space-between}
-    .brand{display:flex; gap:12px; align-items:center; min-width:0}
-    .brand img{width:46px; height:46px; border-radius:14px; object-fit:cover; box-shadow: var(--shadow); border:1px solid rgba(242,210,122,.25)}
-    .brand h1{margin:0; font-size:16px; letter-spacing:.4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .brand .sub{margin:2px 0 0; font-size:12px; color:var(--muted)}
-    .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+    .wrap{max-width:1080px;margin:0 auto;padding:14px 16px}
+    .top{display:flex; gap:12px; align-items:center; justify-content:space-between;}
+    .brand{display:flex;gap:12px;align-items:center;min-width:0}
+    .brand img{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid rgba(215,179,90,.25);box-shadow:var(--shadow)}
+    .brand .t{min-width:0}
+    .brand h1{margin:0;font-size:14px;letter-spacing:.5px}
+    .brand .s{margin-top:2px;font-size:12px;color:var(--muted)}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 12px; border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
-      color:var(--txt);
-      font-weight:700;
-      cursor:pointer;
-      user-select:none;
+      font-weight:800;
+      cursor:pointer; user-select:none;
+      white-space:nowrap;
+      text-decoration:none;
     }
     .pill strong{
-      background: linear-gradient(135deg, var(--gold2), var(--gold1));
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .nav{
-      display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;
-      overflow:auto; padding-bottom:4px;
-    }
+    .nav{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; overflow:auto; padding-bottom:4px;}
     .nav a{
-      text-decoration:none; color:var(--txt);
+      text-decoration:none;
       padding:9px 12px; border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
-      font-size:12.5px; font-weight:700;
+      font-size:12.5px; font-weight:800;
       white-space:nowrap;
     }
-    .nav a:hover{border-color: rgba(242,210,122,.35)}
-    main{max-width:1040px; margin:0 auto; padding:14px 16px 40px}
-    .grid{
-      display:grid; gap:12px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    .nav a:hover{border-color: rgba(215,179,90,.35)}
+    main{max-width:1080px;margin:0 auto;padding:16px 16px 44px}
+    section{scroll-margin-top:120px}
+    .hero{
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.68)),
+        url("assets/sala_vista.jpg");
+      background-size: cover;
+      background-position: center;
     }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding:14px;
+    .heroInner{padding:26px 16px}
+    @media(min-width:860px){ .heroInner{padding:34px 26px} }
+    .logoBig{
+      width:84px;height:84px;border-radius:24px;object-fit:cover;
+      border:1px solid rgba(215,179,90,.28);
       box-shadow: var(--shadow);
     }
-    .card h2{margin:0 0 10px; font-size:14px; letter-spacing:.3px}
-    .muted{color:var(--muted); font-size:13px; line-height:1.35}
-    .btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
-    a.btn, button.btn{
-      border:0; cursor:pointer; text-decoration:none;
-      padding:10px 12px;
-      border-radius: 14px;
-      font-weight:800;
+    .kicker{
+      margin-top:14px;
       display:inline-flex; align-items:center; gap:8px;
-      background: rgba(255,255,255,.06);
-      color:var(--txt);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .gold{
-      background: linear-gradient(135deg, var(--gold2), var(--gold1));
-      color:#18140b; border:0;
-    }
-    .ok{background: var(--ok); color:#04160d; border:0}
-    .danger{background: var(--danger); color:#1b070a; border:0}
-    .ghost:hover{border-color: rgba(242,210,122,.35)}
-    section{scroll-margin-top: 120px}
-    .kpi{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .kpi div{flex:1; min-width:180px; background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:10px}
-    .kpi b{display:block; font-size:12px; color:var(--muted); font-weight:800; letter-spacing:.2px}
-    .kpi span{display:block; margin-top:4px; font-size:13px; font-weight:800}
-    code{background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); padding:3px 7px; border-radius:10px}
-    ul{margin:8px 0 0; padding-left:18px}
-    li{margin:7px 0; color:var(--muted)}
-    .checklist label{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      margin-top:8px;
-      font-size:13px; color:var(--muted);
-    }
-    .split{
-      display:grid; gap:12px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 860px) {
-      .split{grid-template-columns: 1.2fr .8fr}
-    }
-    .qrbox img{width:100%; max-width:260px; border-radius:16px; border:1px solid rgba(242,210,122,.22)}
-    footer{max-width:1040px; margin:0 auto; padding:16px; color:var(--muted); text-align:center; border-top:1px solid var(--line)}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:12px; font-weight:800;
       padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(242,210,122,.25);
-      background: rgba(242,210,122,.08);
-      color: var(--txt);
+      border:1px solid rgba(215,179,90,.22);
+      background: rgba(215,179,90,.08);
+      font-size:12px; font-weight:900; letter-spacing:.2px;
     }
-    .small{font-size:12px}
+    .hero h2{margin:12px 0 6px;font-size:22px;letter-spacing:.6px}
+    .hero p{margin:0;color:rgba(244,241,232,.82);font-size:13.5px;line-height:1.35;max-width:60ch}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius: 16px;
+      font-weight:900;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+    }
+    .btn.gold{color:#1c1509;background: linear-gradient(135deg, var(--gold), var(--gold2));border:0;}
+    .ok{background:#2bd576;color:#04160d;border:0}
+    .danger{background:#ff5a6a;color:#1b070a;border:0}
+    .grid{display:grid; gap:12px; margin-top:12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
+    .card{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius: var(--r); padding:14px; box-shadow: var(--shadow);}
+    .card h3{margin:0 0 10px; font-size:14px; letter-spacing:.3px}
+    .muted{color:var(--muted); font-size:13px; line-height:1.35}
+    .list{margin:8px 0 0; padding-left:18px}
+    .list li{margin:7px 0; color:var(--muted)}
+    code{background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); padding:3px 7px; border-radius:10px}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .chip{padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);font-size:12px;font-weight:800;color:var(--muted)}
+    .split{display:grid; gap:12px; grid-template-columns:1fr}
+    @media(min-width:900px){ .split{grid-template-columns:1.15fr .85fr} }
+    .imgCard{border-radius: var(--r); overflow:hidden; border:1px solid rgba(255,255,255,.10); min-height:220px; background-size:cover; background-position:center; box-shadow: var(--shadow);}
+    .qr img{width:200px;max-width:100%;border-radius:18px;border:1px solid rgba(215,179,90,.25)}
+    footer{max-width:1080px;margin:0 auto;padding:18px 16px;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
   </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <div class="topbar">
+    <div class="top">
       <div class="brand">
-        <img src="assets/logo.png" alt="Brisa Dorada" />
-        <div style="min-width:0">
+        <img src="assets/logo.png" alt="Brisa Dorada"/>
+        <div class="t">
           <h1>BRISA DORADA</h1>
-          <div class="sub" data-i18n="subtitle">Baños de Agua Santa • Libro digital del huésped</div>
+          <div class="s" id="sub">Baños de Agua Santa • Guía del huésped</div>
         </div>
       </div>
-      <div class="controls">
-        <div class="pill" onclick="toggleLang()" title="ES/EN">
-          <span data-i18n="langLabel">Idioma</span>: <strong id="lang">ES</strong>
-        </div>
-        <a class="pill" href="#soporte" style="text-decoration:none">
-          <span data-i18n="supportQuick">Soporte</span>
-        </a>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="pill" onclick="toggleLang()"><span id="langLabel">Idioma</span>: <strong id="lang">ES</strong></div>
+        <a class="pill" href="#soporte">Soporte</a>
       </div>
     </div>
-
     <div class="nav">
-      <a href="#inicio" data-i18n="navHome">Inicio</a>
-      <a href="#llegada" data-i18n="navArrival">Llegada</a>
-      <a href="#wifi" data-i18n="navWifi">WiFi</a>
-      <a href="#casa" data-i18n="navHomeUse">Casa</a>
-      <a href="#reglas" data-i18n="navRules">Reglas</a>
-      <a href="#transporte" data-i18n="navTransport">Transporte</a>
-      <a href="#lugares" data-i18n="navPlaces">Lugares</a>
-      <a href="#comer" data-i18n="navEat">Comer</a>
-      <a href="#relax" data-i18n="navRelax">Relax</a>
-      <a href="#emergencias" data-i18n="navEmergency">Emergencias</a>
-      <a href="#checkout" data-i18n="navCheckout">Check-out</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#llegada">Llegada</a>
+      <a href="#wifi">WiFi</a>
+      <a href="#casa">Casa</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#bano">Baños</a>
+      <a href="#emergencias">Emergencias</a>
+      <a href="#checkout">Check-out</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="inicio" class="grid">
+  <section id="inicio" class="hero">
+    <div class="heroInner">
+      <img class="logoBig" src="assets/logo.png" alt="Logo Brisa Dorada"/>
+      <div class="kicker"><span>✦</span> <span id="tagline">Experiencia tranquila y exclusiva</span></div>
+      <h2>BRISA DORADA</h2>
+      <p id="heroText">Tu refugio para descansar, disfrutar y sentirte como en casa. Vista a la montaña, silencio real y ubicación estratégica.</p>
+
+      <div class="btns">
+        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20necesito%20ayuda%20con...">💬 <span id="btnW">WhatsApp</span></a>
+        <a class="btn" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A">📍 <span id="btnM">Ubicación</span></a>
+        <a class="btn ok" target="_blank" href="https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902">⭐ <span id="btnR">Reseña</span></a>
+      </div>
+
+      <div class="chips">
+        <div class="chip" id="chip1">Vista montaña</div>
+        <div class="chip" id="chip2">Tranquilidad</div>
+        <div class="chip" id="chip3">WiFi</div>
+        <div class="chip" id="chip4">Parking</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="soporte" class="grid">
     <div class="card">
-      <h2 data-i18n="welcomeTitle">Bienvenidos a Brisa Dorada</h2>
-      <p class="muted" data-i18n="welcomeText">
-        Tu refugio para descansar, disfrutar y sentirte como en casa. Nuestro objetivo es que te sientas cómodo desde el primer momento.
-      </p>
-      <div class="kpi">
-        <div>
-          <b data-i18n="hostLabel">Anfitrión</b>
-          <span>Brisa Dorada</span>
-        </div>
-        <div>
-          <b data-i18n="checkinLabel">Check-in</b>
-          <span>15:00</span>
-        </div>
-        <div>
-          <b data-i18n="checkoutLabel">Check-out</b>
-          <span>11:00</span>
-        </div>
-      </div>
+      <h3>💬 <span id="supportTitle">Soporte directo</span></h3>
+      <p class="muted" id="supportText">Escríbenos por WhatsApp. Respuesta rápida durante tu estadía.</p>
       <div class="btns">
-        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20necesito%20ayuda%20con..." data-i18n="btnWhatsapp">WhatsApp</a>
-        <a class="btn ghost" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A" data-i18n="btnMaps">Abrir ubicación</a>
-        <a class="btn ok" target="_blank" href="https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902" data-i18n="btnReview">Dejar reseña</a>
+        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20tengo%20una%20consulta:%20">WhatsApp</a>
+        <button class="btn" onclick="copyText('+593987436423')"><span id="copyPhone">Copiar número</span></button>
       </div>
-      <p class="muted small" style="margin-top:10px" data-i18n="valueProps">
-        Diferenciales: vista a la montaña • tranquilidad • ubicación • casa familiar.
-      </p>
     </div>
 
-    <div class="card qrbox">
-      <h2 data-i18n="qrTitle">QR rápido</h2>
-      <p class="muted" data-i18n="qrText">Escanea para abrir mapas o tu anuncio en Airbnb.</p>
-      <div class="split">
-        <div>
-          <div class="tag" data-i18n="qrMaps">Mapa</div><br/>
-          <img src="assets/qr_maps.png" alt="QR Maps" />
-        </div>
-        <div>
-          <div class="tag" data-i18n="qrAirbnb">Airbnb</div><br/>
-          <img src="assets/qr_airbnb.png" alt="QR Airbnb" />
-        </div>
-      </div>
+    <div class="card qr">
+      <h3>📲 QR del libro</h3>
+      <p class="muted" id="qrText">Escanea para abrir esta guía en tu celular.</p>
+      <img src="assets/qr_libro.png" alt="QR libro"/>
       <div class="btns">
-        <button class="btn ghost" onclick="copyText('https://maps.app.goo.gl/qqcKuewSDVJwxgG9A')" data-i18n="btnCopyMaps">Copiar link Maps</button>
-        <button class="btn ghost" onclick="copyText('https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902')" data-i18n="btnCopyAirbnb">Copiar link Airbnb</button>
+        <button class="btn" onclick="copyText('https://vickyf68.github.io/brisa-dorada-bienvenida/')"><span id="copyLink">Copiar link</span></button>
       </div>
     </div>
   </section>
 
-  <section id="soporte" class="card" style="margin-top:12px;">
-    <h2 data-i18n="supportTitle">Soporte</h2>
-    <p class="muted" data-i18n="supportText">
-      Si tienes alguna pregunta o necesitas apoyo durante tu estadía, escríbenos directamente por WhatsApp. Respuesta ágil.
-    </p>
-    <div class="btns">
-      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20tengo%20una%20consulta:%20" data-i18n="btnWhatsapp2">Escribir por WhatsApp</a>
-      <button class="btn ghost" onclick="copyText('+593987436423')" data-i18n="btnCopyPhone">Copiar número</button>
+  <section id="llegada" class="split" style="margin-top:12px;">
+    <div class="card">
+      <h3>📍 <span id="arrivalTitle">Llegada y Check‑in</span></h3>
+      <p class="muted" id="arrivalText"><b>Check‑in:</b> desde 15:00 • <b>Check‑out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.</p>
+      <div class="btns">
+        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20mi%20hora%20aproximada%20de%20llegada%20es:%20">🕒 <span id="btnArr">Avisar llegada</span></a>
+        <a class="btn" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A">🗺️ <span id="btnRoute">Ver ruta</span></a>
+      </div>
+      <ul class="list">
+        <li id="arr1">Revisa la ubicación en Maps antes de salir.</li>
+        <li id="arr2">Al entrar, verifica agua caliente y WiFi.</li>
+      </ul>
+    </div>
+    <div class="imgCard" style="background-image:url('assets/terraza.jpg')"></div>
+  </section>
+
+  <section id="wifi" class="split" style="margin-top:12px;">
+    <div class="imgCard" style="background-image:url('assets/sala.jpg')"></div>
+    <div class="card">
+      <h3>📶 WiFi</h3>
+      <p class="muted"><span id="net">Red</span>: <code id="ssid">cielitolindo</code><br/><span id="passLabel">Clave</span>: <code id="pass">cileitolindo2025</code></p>
+      <div class="btns">
+        <button class="btn gold" onclick="copyWifi()"><span id="copyWifi">Copiar WiFi</span></button>
+        <button class="btn" onclick="copyText(document.getElementById('pass').innerText)"><span id="copyPass">Copiar clave</span></button>
+      </div>
+      <p class="muted" id="wifiTip">Tip: para mejor estabilidad, ubícate cerca del router. Si hay intermitencia, reinicia el router y avísanos.</p>
     </div>
   </section>
 
-  <section id="llegada" class="card" style="margin-top:12px;">
-    <h2 data-i18n="arrivalTitle">Llegada y Check-in</h2>
-    <p class="muted" data-i18n="arrivalText">Check-in a partir de las 15:00. Por favor avísanos tu hora aproximada de llegada. (Opción de early check-in sujeto a disponibilidad.)</p>
-    <div class="btns">
-      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20mi%20hora%20aproximada%20de%20llegada%20es:%20" data-i18n="btnArrive">Avisar hora de llegada</a>
-      <a class="btn ghost" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A" data-i18n="btnRoute">Ver ruta</a>
+  <section id="casa" class="grid" style="margin-top:12px;">
+    <div class="card">
+      <h3>🏡 <span id="homeTitle">La casa</span></h3>
+      <p class="muted" id="homeText">Casa completa privada, ambiente familiar y tranquilo, vista a la montaña, cocina equipada y parqueadero.</p>
+      <ul class="list">
+        <li id="home1">Usa con confianza, cuida con cariño y deja todo limpio.</li>
+        <li id="home2">Botiquín y extintor: en la cocina.</li>
+      </ul>
     </div>
-    <div class="checklist" style="margin-top:12px;">
-      <div class="tag" data-i18n="arrivalChecklist">Checklist de llegada</div>
-      <label><input type="checkbox" /> <span data-i18n="arrC1">Abrí la ubicación en Maps</span></label>
-      <label><input type="checkbox" /> <span data-i18n="arrC2">Accedí con la caja de llaves (entrada)</span></label>
-      <label><input type="checkbox" /> <span data-i18n="arrC3">Me conecté al WiFi</span></label>
-      <label><input type="checkbox" /> <span data-i18n="arrC4">Revisé agua caliente / ducha</span></label>
-    </div>
-    <p class="muted small" style="margin-top:10px" data-i18n="keysNote">Acceso: caja de llaves en la entrada (opción A).</p>
-  </section>
-
-  <section id="wifi" class="card" style="margin-top:12px;">
-    <h2 data-i18n="wifiTitle">WiFi</h2>
-    <p class="muted">
-      <span data-i18n="wifiNetwork">Red</span>: <code id="ssid">cielitolindo</code><br/>
-      <span data-i18n="wifiPass">Clave</span>: <code id="pass">cileitolindo2025</code>
-    </p>
-    <div class="btns">
-      <button class="btn gold" onclick="copyWifi()" data-i18n="btnCopyWifi">Copiar WiFi</button>
-      <button class="btn ghost" onclick="copyText(document.getElementById('pass').innerText)" data-i18n="btnCopyPass">Copiar clave</button>
-    </div>
-    <ul>
-      <li data-i18n="wifiTip1">Si trabajas remoto, ubícate cerca del router para mejor estabilidad.</li>
-      <li data-i18n="wifiTip2">Si hay intermitencia, reinicia el router y avísanos por WhatsApp.</li>
-    </ul>
-  </section>
-
-  <section id="casa" class="card" style="margin-top:12px;">
-    <h2 data-i18n="homeUseTitle">Uso de la casa y cocina</h2>
-    <p class="muted" data-i18n="kitchenIntro">
-      La cocina está completamente equipada. Encontrarás ollas, sartenes, utensilios y básicos (azúcar, sal, aceite y especias) para usar durante tu estancia (no para llevar).
-    </p>
-    <ul>
-      <li data-i18n="kitchenList">Equipo: refrigeradora, cocina de inducción, arrocera, licuadora, air fryer, cafetera, hervidor, cuchillos, vajilla y más.</li>
-      <li data-i18n="kitchenCare">Úsalo con confianza, cuídalo con cariño y al final déjalo limpio y ordenado.</li>
-      <li data-i18n="aidNote">Botiquín y extintor: en la cocina.</li>
-    </ul>
+    <div class="imgCard" style="background-image:url('assets/cocina.jpg')"></div>
+    <div class="imgCard" style="background-image:url('assets/dormitorio2.jpg')"></div>
   </section>
 
   <section id="reglas" class="card" style="margin-top:12px;">
-    <h2 data-i18n="rulesTitle">Reglas de la casa</h2>
-    <p class="muted" data-i18n="rulesIntro">Cuidamos a nuestros vecinos y buscamos una convivencia excelente. Respeta horarios de descanso.</p>
-    <div class="kpi">
-      <div><b>🚭</b><span data-i18n="r1">No fumar</span></div>
-      <div><b>🐾</b><span data-i18n="r2">No mascotas</span></div>
-      <div><b>🚫</b><span data-i18n="r3">No drogas o sustancias ilegales</span></div>
-      <div><b>🎉</b><span data-i18n="r4">No fiestas</span></div>
-      <div><b>👥</b><span data-i18n="r5">No invitados adicionales</span></div>
-      <div><b>🛠️</b><span data-i18n="r6">No dañar</span></div>
+    <h3>📜 <span id="rulesTitle">Reglas de la casa</span></h3>
+    <p class="muted" id="rulesText">Cuidamos a nuestros vecinos. Respeta horarios de descanso para una estadía excelente.</p>
+    <div class="chips">
+      <div class="chip" id="r1">🚭 No fumar</div>
+      <div class="chip" id="r2">🎉 No fiestas</div>
+      <div class="chip" id="r3">🐾 No mascotas</div>
+      <div class="chip" id="r4">👥 No invitados extra</div>
+      <div class="chip" id="r5">🚫 No drogas</div>
+      <div class="chip" id="r6">🛠️ No dañar</div>
     </div>
   </section>
 
-  <section id="transporte" class="card" style="margin-top:12px;">
-    <h2 data-i18n="transportTitle">Transporte y apoyo</h2>
-    <ul>
-      <li data-i18n="t1"><b>Transporte público:</b> el bus pasa por frente a la casa hacia el centro de Baños (7:00 a 18:00).</li>
-      <li><b data-i18n="t2b">Transporte privado / encomiendas:</b> Sr. Diego Soria — <span class="muted">0995155439</span></li>
-      <li><b data-i18n="t3b">Guía turístico:</b> Explorsierra — <span class="muted">0968644469</span></li>
-    </ul>
-    <div class="btns">
-      <a class="btn ghost" href="tel:+593995155439" data-i18n="btnCallDiego">Llamar a Diego</a>
-      <a class="btn ghost" href="tel:+593968644469" data-i18n="btnCallGuide">Llamar a Guía</a>
+  <section id="bano" class="split" style="margin-top:12px;">
+    <div class="card">
+      <h3>🌋 <span id="bTitle">Qué hacer en Baños</span></h3>
+      <ul class="list">
+        <li id="b1"><b>Casa del Árbol</b> (Runtún).</li>
+        <li id="b2"><b>Ruta de las Cascadas</b>.</li>
+        <li id="b3"><b>Aguas Termales</b>.</li>
+      </ul>
+      <p class="muted" id="bTip">Si quieres, te sugerimos un orden óptimo según clima y horarios.</p>
+      <div class="btns">
+        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20quiero%20una%20ruta%20sugerida%20para%20hoy%20seg%C3%BAn%20el%20clima.">🗺️ <span id="bBtn">Pedir ruta</span></a>
+      </div>
     </div>
-  </section>
-
-  <section id="lugares" class="card" style="margin-top:12px;">
-    <h2 data-i18n="placesTitle">Lugares para visitar</h2>
-    <ul>
-      <li data-i18n="p1"><b>Casa del Árbol:</b> zona Runtún (2660 msnm).</li>
-      <li data-i18n="p2"><b>Ruta de las Cascadas:</b> recorrido aventurero con las mejores cascadas.</li>
-      <li data-i18n="p3"><b>Aguas Termales:</b> piscinas termales famosas por sus bondades.</li>
-    </ul>
-    <p class="muted small" data-i18n="placesTip">Tip operativo: si quieres, te armamos un orden óptimo según clima y horario.</p>
-    <div class="btns">
-      <a class="btn gold" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A" data-i18n="btnOpenMap">Abrir mapa base</a>
-      <a class="btn ghost" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20quiero%20recomendaci%C3%B3n%20de%20ruta%20para%20hoy%20seg%C3%BAn%20el%20clima." data-i18n="btnRoutePlan">Pedir ruta sugerida</a>
-    </div>
-  </section>
-
-  <section id="comer" class="card" style="margin-top:12px;">
-    <h2 data-i18n="eatTitle">Lugares para comer</h2>
-    <ul>
-      <li><b>Swiss Bistro</b> — <span data-i18n="e1">fondue, lomos, especialidades suizas y europeas.</span></li>
-      <li><b>Café del Cielo</b> — <span data-i18n="e2">café y té, desayunos, waffles, sánduches, crepes, postres.</span></li>
-      <li><b>Azotea 740</b> — <span data-i18n="e3">buena comida y cerveza artesanal local (Parque Central).</span></li>
-    </ul>
-  </section>
-
-  <section id="relax" class="card" style="margin-top:12px;">
-    <h2 data-i18n="relaxTitle">Lugares para relajarse</h2>
-    <ul>
-      <li><b>El Refugio</b> — <span data-i18n="rx1">SPA, terapias alternativas, senderos de sanación, piscinas cubiertas (8 min caminando).</span> <span class="muted">0998074027</span></li>
-      <li><b>El Spa de tus Sueños</b> — <span data-i18n="rx2">chocoterapia, aromaterapia, masaje facial, reflexología.</span> <span class="muted">0988254087</span></li>
-    </ul>
-    <div class="btns">
-      <a class="btn ghost" href="tel:+593998074027" data-i18n="btnCallRefugio">Llamar El Refugio</a>
-      <a class="btn ghost" href="tel:+593988254087" data-i18n="btnCallSpa">Llamar Spa</a>
-    </div>
+    <div class="imgCard" style="background-image:url('assets/comedor2.jpg')"></div>
   </section>
 
   <section id="emergencias" class="card" style="margin-top:12px;">
-    <h2 data-i18n="emTitle">Emergencias</h2>
-    <p class="muted" data-i18n="emText">Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.</p>
+    <h3>🚨 <span id="eTitle">Emergencias</span></h3>
+    <p class="muted" id="eText">Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.</p>
     <div class="btns">
-      <a class="btn danger" href="tel:911" data-i18n="btn911">Llamar 911</a>
-      <a class="btn ghost" href="tel:+5933740126" data-i18n="btnHospital">Hospital</a>
-      <a class="btn ghost" href="tel:+5932740301" data-i18n="btnFire">Bomberos</a>
+      <a class="btn danger" href="tel:911">📞 911</a>
+      <a class="btn" href="tel:+5933740126"><span id="eHosp">Hospital</span></a>
+      <a class="btn" href="tel:+5932740301"><span id="eFire">Bomberos</span></a>
     </div>
-    <ul>
-      <li data-i18n="emHospital"><b>Hospital:</b> Calle Juan Montalvo y Pastaza — (03) 740126</li>
-      <li data-i18n="emFire"><b>Bomberos:</b> Av. Oriente y Los Motilones — 03 2 740 301 / 03 2 740 500</li>
-      <li data-i18n="emAid"><b>Botiquín y extintor:</b> en la cocina.</li>
-      <li data-i18n="emAddr"><b>Dirección Brisa Dorada:</b> Calles Sta María y San Jacinto, Ciudadela San Vicente.</li>
+    <ul class="list">
+      <li id="e1"><b>Hospital:</b> Calle Juan Montalvo y Pastaza — (03) 740126</li>
+      <li id="e2"><b>Bomberos:</b> Av. Oriente y Los Motilones — 03 2 740 301 / 03 2 740 500</li>
+      <li id="e3"><b>Botiquín y extintor:</b> en la cocina</li>
     </ul>
   </section>
 
   <section id="checkout" class="card" style="margin-top:12px;">
-    <h2 data-i18n="coTitle">Check-out</h2>
-    <p class="muted" data-i18n="coText">Check-out hasta las 11:00 a.m. Antes de salir, por favor completa lo siguiente.</p>
-    <div class="checklist" style="margin-top:12px;">
-      <div class="tag" data-i18n="coChecklist">Checklist de salida</div>
-      <label><input type="checkbox" /> <span data-i18n="co1">Apagar luces y electrodomésticos</span></label>
-      <label><input type="checkbox" /> <span data-i18n="co2">Dejar las llaves en la caja de la entrada</span></label>
-      <label><input type="checkbox" /> <span data-i18n="co3">Revisar que llevas contigo todas tus pertenencias</span></label>
-    </div>
-    <div class="btns" style="margin-top:12px;">
-      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20ya%20realic%C3%A9%20el%20check-out.%20Gracias." data-i18n="btnNotifyCheckout">Avisar check-out</a>
-      <a class="btn ok" target="_blank" href="https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902" data-i18n="btnReview2">Dejar reseña</a>
+    <h3>✅ <span id="coTitle">Check‑out</span></h3>
+    <p class="muted" id="coText">Antes de salir (hasta 11:00 a.m.), por favor:</p>
+    <ul class="list">
+      <li id="co1">Apagar luces y electrodomésticos.</li>
+      <li id="co2">Dejar las llaves en la caja de la entrada.</li>
+      <li id="co3">Revisar que llevas todas tus pertenencias.</li>
+    </ul>
+    <div class="btns">
+      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20ya%20realic%C3%A9%20el%20check-out.%20Gracias.">💬 <span id="coBtn">Avisar check‑out</span></a>
+      <a class="btn ok" target="_blank" href="https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902">⭐ <span id="coRev">Dejar reseña</span></a>
     </div>
   </section>
-
 </main>
 
-<footer>
-  <div data-i18n="footerLine">Brisa Dorada • Estándar boutique con operación eficiente</div>
-</footer>
+<footer><div id="foot">Brisa Dorada • Estándar boutique con operación eficiente</div></footer>
 
 <script>
-  const I18N = {
+  let lang = "es";
+  const T = {
     es: {
-      subtitle:"Baños de Agua Santa • Libro digital del huésped",
+      sub:"Baños de Agua Santa • Guía del huésped",
       langLabel:"Idioma",
-      supportQuick:"Soporte",
-      navHome:"Inicio", navArrival:"Llegada", navWifi:"WiFi", navHomeUse:"Casa", navRules:"Reglas", navTransport:"Transporte", navPlaces:"Lugares", navEat:"Comer", navRelax:"Relax", navEmergency:"Emergencias", navCheckout:"Check-out",
-      welcomeTitle:"Bienvenidos a Brisa Dorada",
-      welcomeText:"Tu refugio para descansar, disfrutar y sentirte como en casa. Nuestro objetivo es que te sientas cómodo desde el primer momento.",
-      hostLabel:"Anfitrión", checkinLabel:"Check-in", checkoutLabel:"Check-out",
-      btnWhatsapp:"WhatsApp", btnMaps:"Abrir ubicación", btnReview:"Dejar reseña",
-      valueProps:"Diferenciales: vista a la montaña • tranquilidad • ubicación • casa familiar.",
-      qrTitle:"QR rápido", qrText:"Escanea para abrir mapas o tu anuncio en Airbnb.",
-      qrMaps:"Mapa", qrAirbnb:"Airbnb",
-      btnCopyMaps:"Copiar link Maps", btnCopyAirbnb:"Copiar link Airbnb",
-      supportTitle:"Soporte",
-      supportText:"Si tienes alguna pregunta o necesitas apoyo durante tu estadía, escríbenos directamente por WhatsApp. Respuesta ágil.",
-      btnWhatsapp2:"Escribir por WhatsApp", btnCopyPhone:"Copiar número",
-      arrivalTitle:"Llegada y Check-in",
-      arrivalText:"Check-in a partir de las 15:00. Por favor avísanos tu hora aproximada de llegada. (Opción de early check-in sujeto a disponibilidad.)",
-      btnArrive:"Avisar hora de llegada", btnRoute:"Ver ruta",
-      arrivalChecklist:"Checklist de llegada",
-      arrC1:"Abrí la ubicación en Maps",
-      arrC2:"Accedí con la caja de llaves (entrada)",
-      arrC3:"Me conecté al WiFi",
-      arrC4:"Revisé agua caliente / ducha",
-      keysNote:"Acceso: caja de llaves en la entrada (opción A).",
-      wifiTitle:"WiFi", wifiNetwork:"Red", wifiPass:"Clave",
-      btnCopyWifi:"Copiar WiFi", btnCopyPass:"Copiar clave",
-      wifiTip1:"Si trabajas remoto, ubícate cerca del router para mejor estabilidad.",
-      wifiTip2:"Si hay intermitencia, reinicia el router y avísanos por WhatsApp.",
-      homeUseTitle:"Uso de la casa y cocina",
-      kitchenIntro:"La cocina está completamente equipada. Encontrarás ollas, sartenes, utensilios y básicos (azúcar, sal, aceite y especias) para usar durante tu estancia (no para llevar).",
-      kitchenList:"Equipo: refrigeradora, cocina de inducción, arrocera, licuadora, air fryer, cafetera, hervidor, cuchillos, vajilla y más.",
-      kitchenCare:"Úsalo con confianza, cuídalo con cariño y al final déjalo limpio y ordenado.",
-      aidNote:"Botiquín y extintor: en la cocina.",
+      tagline:"Experiencia tranquila y exclusiva",
+      heroText:"Tu refugio para descansar, disfrutar y sentirte como en casa. Vista a la montaña, silencio real y ubicación estratégica.",
+      btnW:"WhatsApp", btnM:"Ubicación", btnR:"Reseña",
+      supportTitle:"Soporte directo",
+      supportText:"Escríbenos por WhatsApp. Respuesta rápida durante tu estadía.",
+      copyPhone:"Copiar número",
+      qrText:"Escanea para abrir esta guía en tu celular.",
+      copyLink:"Copiar link",
+      arrivalTitle:"Llegada y Check‑in",
+      arrivalText:"<b>Check‑in:</b> desde 15:00 • <b>Check‑out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.",
+      btnArr:"Avisar llegada", btnRoute:"Ver ruta",
+      arr1:"Revisa la ubicación en Maps antes de salir.",
+      arr2:"Al entrar, verifica agua caliente y WiFi.",
+      net:"Red", passLabel:"Clave",
+      copyWifi:"Copiar WiFi", copyPass:"Copiar clave",
+      wifiTip:"Tip: para mejor estabilidad, ubícate cerca del router. Si hay intermitencia, reinicia el router y avísanos.",
+      homeTitle:"La casa",
+      homeText:"Casa completa privada, ambiente familiar y tranquilo, vista a la montaña, cocina equipada y parqueadero.",
+      home1:"Usa con confianza, cuida con cariño y deja todo limpio.",
+      home2:"Botiquín y extintor: en la cocina.",
       rulesTitle:"Reglas de la casa",
-      rulesIntro:"Cuidamos a nuestros vecinos y buscamos una convivencia excelente. Respeta horarios de descanso.",
-      r1:"No fumar", r2:"No mascotas", r3:"No drogas o sustancias ilegales", r4:"No fiestas", r5:"No invitados adicionales", r6:"No dañar",
-      transportTitle:"Transporte y apoyo",
-      t1:"Transporte público: el bus pasa por frente a la casa hacia el centro de Baños (7:00 a 18:00).",
-      t2b:"Transporte privado / encomiendas:", t3b:"Guía turístico:",
-      btnCallDiego:"Llamar a Diego", btnCallGuide:"Llamar a Guía",
-      placesTitle:"Lugares para visitar",
-      p1:"Casa del Árbol: zona Runtún (2660 msnm).",
-      p2:"Ruta de las Cascadas: recorrido aventurero con las mejores cascadas.",
-      p3:"Aguas Termales: piscinas termales famosas por sus bondades.",
-      placesTip:"Tip operativo: si quieres, te armamos un orden óptimo según clima y horario.",
-      btnOpenMap:"Abrir mapa base", btnRoutePlan:"Pedir ruta sugerida",
-      eatTitle:"Lugares para comer",
-      e1:"fondue, lomos, especialidades suizas y europeas.",
-      e2:"café y té, desayunos, waffles, sánduches, crepes, postres.",
-      e3:"buena comida y cerveza artesanal local (Parque Central).",
-      relaxTitle:"Lugares para relajarse",
-      rx1:"SPA, terapias alternativas, senderos de sanación, piscinas cubiertas (8 min caminando).",
-      rx2:"chocoterapia, aromaterapia, masaje facial, reflexología.",
-      btnCallRefugio:"Llamar El Refugio", btnCallSpa:"Llamar Spa",
-      emTitle:"Emergencias",
-      emText:"Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.",
-      btn911:"Llamar 911", btnHospital:"Hospital", btnFire:"Bomberos",
-      emHospital:"Hospital: Calle Juan Montalvo y Pastaza — (03) 740126",
-      emFire:"Bomberos: Av. Oriente y Los Motilones — 03 2 740 301 / 03 2 740 500",
-      emAid:"Botiquín y extintor: en la cocina.",
-      emAddr:"Dirección Brisa Dorada: Calles Sta María y San Jacinto, Ciudadela San Vicente.",
-      coTitle:"Check-out",
-      coText:"Check-out hasta las 11:00 a.m. Antes de salir, por favor completa lo siguiente.",
-      coChecklist:"Checklist de salida",
-      co1:"Apagar luces y electrodomésticos",
-      co2:"Dejar las llaves en la caja de la entrada",
-      co3:"Revisar que llevas contigo todas tus pertenencias",
-      btnNotifyCheckout:"Avisar check-out",
-      btnReview2:"Dejar reseña",
-      footerLine:"Brisa Dorada • Estándar boutique con operación eficiente"
+      rulesText:"Cuidamos a nuestros vecinos. Respeta horarios de descanso para una estadía excelente.",
+      bTitle:"Qué hacer en Baños",
+      b1:"Casa del Árbol (Runtún).",
+      b2:"Ruta de las Cascadas.",
+      b3:"Aguas Termales.",
+      bTip:"Si quieres, te sugerimos un orden óptimo según clima y horarios.",
+      bBtn:"Pedir ruta",
+      eTitle:"Emergencias",
+      eText:"Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.",
+      eHosp:"Hospital", eFire:"Bomberos",
+      coTitle:"Check‑out",
+      coText:"Antes de salir (hasta 11:00 a.m.), por favor:",
+      co1:"Apagar luces y electrodomésticos.",
+      co2:"Dejar las llaves en la caja de la entrada.",
+      co3:"Revisar que llevas todas tus pertenencias.",
+      coBtn:"Avisar check‑out",
+      coRev:"Dejar reseña",
+      foot:"Brisa Dorada • Estándar boutique con operación eficiente"
     },
     en: {
-      subtitle:"Baños de Agua Santa • Guest Digital Guide",
+      sub:"Baños de Agua Santa • Guest Guide",
       langLabel:"Language",
-      supportQuick:"Support",
-      navHome:"Home", navArrival:"Arrival", navWifi:"WiFi", navHomeUse:"Home", navRules:"Rules", navTransport:"Transport", navPlaces:"Places", navEat:"Eat", navRelax:"Relax", navEmergency:"Emergency", navCheckout:"Check-out",
-      welcomeTitle:"Welcome to Brisa Dorada",
-      welcomeText:"Your place to rest, enjoy, and feel at home. Our goal is for you to be comfortable from the very first moment.",
-      hostLabel:"Host", checkinLabel:"Check-in", checkoutLabel:"Check-out",
-      btnWhatsapp:"WhatsApp", btnMaps:"Open location", btnReview:"Leave a review",
-      valueProps:"Highlights: mountain view • calm atmosphere • great location • family home.",
-      qrTitle:"Quick QR", qrText:"Scan to open Maps or the Airbnb listing.",
-      qrMaps:"Map", qrAirbnb:"Airbnb",
-      btnCopyMaps:"Copy Maps link", btnCopyAirbnb:"Copy Airbnb link",
-      supportTitle:"Support",
-      supportText:"If you have any questions or need help during your stay, message us on WhatsApp. Fast response.",
-      btnWhatsapp2:"Message on WhatsApp", btnCopyPhone:"Copy number",
-      arrivalTitle:"Arrival & Check-in",
-      arrivalText:"Check-in starts at 3:00 p.m. Please tell us your estimated arrival time. (Early check-in depends on availability.)",
-      btnArrive:"Share arrival time", btnRoute:"View route",
-      arrivalChecklist:"Arrival checklist",
-      arrC1:"Opened the location in Maps",
-      arrC2:"Accessed using the key lockbox (entrance)",
-      arrC3:"Connected to WiFi",
-      arrC4:"Checked hot water / shower",
-      keysNote:"Access: key lockbox at the entrance (option A).",
-      wifiTitle:"WiFi", wifiNetwork:"Network", wifiPass:"Password",
-      btnCopyWifi:"Copy WiFi", btnCopyPass:"Copy password",
-      wifiTip1:"If you work remotely, stay closer to the router for best stability.",
-      wifiTip2:"If it’s unstable, restart the router and let us know on WhatsApp.",
-      homeUseTitle:"Home & kitchen use",
-      kitchenIntro:"The kitchen is fully equipped. You’ll find pots, pans, utensils and basics (sugar, salt, oil, spices) for your stay (not to take away).",
-      kitchenList:"Equipment: fridge, induction stove, rice cooker, blender, air fryer, coffee maker, kettle, knives, dishes and more.",
-      kitchenCare:"Use everything with confidence, take care of it, and leave it clean and tidy.",
-      aidNote:"First aid kit & extinguisher: in the kitchen.",
+      tagline:"A calm, exclusive experience",
+      heroText:"Your place to rest, enjoy and feel at home. Mountain views, true quietness and a strategic location.",
+      btnW:"WhatsApp", btnM:"Location", btnR:"Review",
+      supportTitle:"Direct support",
+      supportText:"Message us on WhatsApp. Fast response during your stay.",
+      copyPhone:"Copy number",
+      qrText:"Scan to open this guide on your phone.",
+      copyLink:"Copy link",
+      arrivalTitle:"Arrival & Check‑in",
+      arrivalText:"<b>Check‑in:</b> from 3:00 p.m. • <b>Check‑out:</b> 11:00 a.m. Access via entrance key lockbox. Please share your ETA.",
+      btnArr:"Share ETA", btnRoute:"View route",
+      arr1:"Open the location in Maps before you leave.",
+      arr2:"After entry, check hot water and WiFi.",
+      net:"Network", passLabel:"Password",
+      copyWifi:"Copy WiFi", copyPass:"Copy password",
+      wifiTip:"Tip: for best stability, stay closer to the router. If unstable, restart it and message us.",
+      homeTitle:"The home",
+      homeText:"Entire private home, calm family vibe, mountain view, equipped kitchen and parking.",
+      home1:"Use everything with confidence, take care of it, and leave it clean.",
+      home2:"First aid kit & extinguisher: in the kitchen.",
       rulesTitle:"House rules",
-      rulesIntro:"We care about our neighbors. Please respect quiet hours.",
-      r1:"No smoking", r2:"No pets", r3:"No drugs or illegal substances", r4:"No parties", r5:"No additional guests", r6:"Do not damage",
-      transportTitle:"Transport & support",
-      t1:"Public transport: the bus passes in front of the house toward downtown Baños (7am–6pm).",
-      t2b:"Private transport / deliveries:", t3b:"Tour guide:",
-      btnCallDiego:"Call Diego", btnCallGuide:"Call Guide",
-      placesTitle:"Places to visit",
-      p1:"Tree House: Runtún area (2660 m a.s.l.).",
-      p2:"Waterfall Route: adventurous route with the best waterfalls.",
-      p3:"Thermal Waters: famous thermal pools known for their benefits.",
-      placesTip:"Operations tip: we can suggest the best order depending on weather and time.",
-      btnOpenMap:"Open base map", btnRoutePlan:"Ask for today’s route",
-      eatTitle:"Places to eat",
-      e1:"fondue, tenderloins, Swiss & European specialties.",
-      e2:"coffee & tea, breakfasts, waffles, sandwiches, crepes, desserts.",
-      e3:"great food and local craft beer (Central Park).",
-      relaxTitle:"Places to relax",
-      rx1:"SPA, alternative therapies, healing routes, indoor pools (8-min walk).",
-      rx2:"choco-therapy, aromatherapy, facial massage, reflexology.",
-      btnCallRefugio:"Call El Refugio", btnCallSpa:"Call Spa",
-      emTitle:"Emergencies",
-      emText:"In any emergency, prioritize safety and call the appropriate number.",
-      btn911:"Call 911", btnHospital:"Hospital", btnFire:"Firefighters",
-      emHospital:"Hospital: Juan Montalvo & Pastaza — (03) 740126",
-      emFire:"Firefighters: Av. Oriente & Los Motilones — 03 2 740 301 / 03 2 740 500",
-      emAid:"First aid kit & extinguisher: in the kitchen.",
-      emAddr:"Brisa Dorada address: Sta María & San Jacinto streets, Ciudadela San Vicente.",
-      coTitle:"Check-out",
-      coText:"Check-out is until 11:00 a.m. Before you leave, please complete the following.",
-      coChecklist:"Departure checklist",
-      co1:"Turn off lights and appliances",
-      co2:"Drop the keys in the entrance lockbox",
-      co3:"Make sure you have all your belongings",
-      btnNotifyCheckout:"Notify check-out",
-      btnReview2:"Leave a review",
-      footerLine:"Brisa Dorada • Boutique standard with efficient operations"
+      rulesText:"We care about our neighbors. Please respect quiet hours for an excellent stay.",
+      bTitle:"Things to do in Baños",
+      b1:"Tree House (Runtún).",
+      b2:"Waterfall Route.",
+      b3:"Thermal pools.",
+      bTip:"If you want, we can suggest the best order based on weather and time.",
+      bBtn:"Ask for a route",
+      eTitle:"Emergencies",
+      eText:"In any emergency, prioritize safety and call the appropriate number.",
+      eHosp:"Hospital", eFire:"Firefighters",
+      coTitle:"Check‑out",
+      coText:"Before leaving (until 11:00 a.m.), please:",
+      co1:"Turn off lights and appliances.",
+      co2:"Drop the keys in the entrance lockbox.",
+      co3:"Make sure you have all your belongings.",
+      coBtn:"Notify check‑out",
+      coRev:"Leave a review",
+      foot:"Brisa Dorada • Boutique standard with efficient operations"
     }
   };
 
-  let lang = "es";
-  function applyI18n() {
+  function apply() {
+    const x = T[lang];
     document.getElementById("lang").textContent = lang.toUpperCase();
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
-    });
+    document.getElementById("sub").textContent = x.sub;
+    document.getElementById("langLabel").textContent = x.langLabel;
+    document.getElementById("tagline").textContent = x.tagline;
+    document.getElementById("heroText").textContent = x.heroText;
+    document.getElementById("btnW").textContent = x.btnW;
+    document.getElementById("btnM").textContent = x.btnM;
+    document.getElementById("btnR").textContent = x.btnR;
+
+    document.getElementById("supportTitle").textContent = x.supportTitle;
+    document.getElementById("supportText").textContent = x.supportText;
+    document.getElementById("copyPhone").textContent = x.copyPhone;
+    document.getElementById("qrText").textContent = x.qrText;
+    document.getElementById("copyLink").textContent = x.copyLink;
+
+    document.getElementById("arrivalTitle").textContent = x.arrivalTitle;
+    document.getElementById("arrivalText").innerHTML = x.arrivalText;
+    document.getElementById("btnArr").textContent = x.btnArr;
+    document.getElementById("btnRoute").textContent = x.btnRoute;
+    document.getElementById("arr1").textContent = x.arr1;
+    document.getElementById("arr2").textContent = x.arr2;
+
+    document.getElementById("net").textContent = x.net;
+    document.getElementById("passLabel").textContent = x.passLabel;
+    document.getElementById("copyWifi").textContent = x.copyWifi;
+    document.getElementById("copyPass").textContent = x.copyPass;
+    document.getElementById("wifiTip").textContent = x.wifiTip;
+
+    document.getElementById("homeTitle").textContent = x.homeTitle;
+    document.getElementById("homeText").textContent = x.homeText;
+
+    document.getElementById("rulesTitle").textContent = x.rulesTitle;
+    document.getElementById("rulesText").textContent = x.rulesText;
+
+    document.getElementById("bTitle").textContent = x.bTitle;
+    document.getElementById("b1").innerHTML = "<b>" + x.b1.split(" (")[0] + "</b>" + (x.b1.includes("(") ? " ("+x.b1.split(" (")[1] : "");
+    document.getElementById("b2").innerHTML = "<b>" + x.b2.replace(".","") + "</b>.";
+    document.getElementById("b3").innerHTML = "<b>" + x.b3.replace(".","") + "</b>.";
+    document.getElementById("bTip").textContent = x.bTip;
+    document.getElementById("bBtn").textContent = x.bBtn;
+
+    document.getElementById("eTitle").textContent = x.eTitle;
+    document.getElementById("eText").textContent = x.eText;
+    document.getElementById("eHosp").textContent = x.eHosp;
+    document.getElementById("eFire").textContent = x.eFire;
+
+    document.getElementById("coTitle").textContent = x.coTitle;
+    document.getElementById("coText").textContent = x.coText;
+    document.getElementById("co1").textContent = x.co1;
+    document.getElementById("co2").textContent = x.co2;
+    document.getElementById("co3").textContent = x.co3;
+    document.getElementById("coBtn").textContent = x.coBtn;
+    document.getElementById("coRev").textContent = x.coRev;
+
+    document.getElementById("foot").textContent = x.foot;
   }
+
   function toggleLang() {
-    lang = (lang === "es") ? "en" : "es";
-    applyI18n();
-    toast(lang === "es" ? "Idioma: Español ✅" : "Language: English ✅");
+    lang = (lang==="es") ? "en" : "es";
+    apply();
+    toast(lang==="es" ? "Español ✅" : "English ✅");
   }
 
   async function copyText(t) {
     try { await navigator.clipboard.writeText(t); toast(lang==="es" ? "Copiado ✅" : "Copied ✅"); }
     catch(e) { alert(lang==="es" ? "No se pudo copiar. Copia manualmente." : "Could not copy. Please copy manually."); }
   }
+
   function copyWifi() {
     const ssid = document.getElementById('ssid').innerText;
     const pass = document.getElementById('pass').innerText;
     copyText(`WiFi: ${ssid} | ${lang==="es" ? "Clave" : "Password"}: ${pass}`);
   }
+
   function toast(msg) {
     const el = document.createElement('div');
     el.textContent = msg;
     el.style.position='fixed'; el.style.left='50%'; el.style.bottom='18px';
     el.style.transform='translateX(-50%)';
     el.style.padding='10px 12px'; el.style.borderRadius='14px';
-    el.style.background='rgba(0,0,0,.75)'; el.style.color='white';
-    el.style.border='1px solid rgba(242,210,122,.22)';
-    el.style.boxShadow='0 18px 50px rgba(0,0,0,.45)';
+    el.style.background='rgba(0,0,0,.78)'; el.style.color='white';
+    el.style.border='1px solid rgba(215,179,90,.22)';
+    el.style.boxShadow='0 18px 60px rgba(0,0,0,.55)';
     document.body.appendChild(el);
     setTimeout(()=>el.remove(), 1400);
   }
-  applyI18n();
+
+  apply();
 </script>
 </body>
 </html>

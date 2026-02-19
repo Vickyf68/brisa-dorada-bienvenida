@@ -8,119 +8,60 @@
   <meta name="description" content="Brisa Dorada • Experiencia tranquila y exclusiva en Baños de Agua Santa."/>
   <style>
     :root {
-      --bg:#050509;
-      --card:#0f1016;
-      --line:rgba(255,255,255,.10);
-      --txt:#f4f1e8;
-      --muted:rgba(244,241,232,.70);
-      --gold:#d7b35a;
-      --gold2:#b8872d;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --r:20px;
+      --bg:#050509; --line:rgba(255,255,255,.10);
+      --txt:#f4f1e8; --muted:rgba(244,241,232,.70);
+      --gold:#d7b35a; --gold2:#b8872d;
+      --shadow: 0 18px 60px rgba(0,0,0,.55); --r:20px;
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
       background:
         radial-gradient(1200px 700px at 10% 0%, rgba(215,179,90,.12), transparent 55%),
         radial-gradient(900px 600px at 90% 10%, rgba(184,135,45,.10), transparent 55%),
         linear-gradient(180deg, #050509, var(--bg));
       color:var(--txt);
     }
-    header{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(12px);
-      background: rgba(5,5,9,.70);
-      border-bottom: 1px solid var(--line);
-    }
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(5,5,9,.70);border-bottom:1px solid var(--line);}
     .wrap{max-width:1080px;margin:0 auto;padding:14px 16px}
-    .top{display:flex; gap:12px; align-items:center; justify-content:space-between;}
+    .top{display:flex;gap:12px;align-items:center;justify-content:space-between;}
     .brand{display:flex;gap:12px;align-items:center;min-width:0}
     .brand img{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid rgba(215,179,90,.25);box-shadow:var(--shadow)}
-    .brand .t{min-width:0}
     .brand h1{margin:0;font-size:14px;letter-spacing:.5px}
     .brand .s{margin-top:2px;font-size:12px;color:var(--muted)}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-weight:800;
-      cursor:pointer; user-select:none;
-      white-space:nowrap;
-      text-decoration:none;
-    }
-    .pill strong{
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .nav{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; overflow:auto; padding-bottom:4px;}
-    .nav a{
-      text-decoration:none;
-      padding:9px 12px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      font-size:12.5px; font-weight:800;
-      white-space:nowrap;
-    }
-    .nav a:hover{border-color: rgba(215,179,90,.35)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:800;cursor:pointer;user-select:none;white-space:nowrap;text-decoration:none;}
+    .pill strong{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;overflow:auto;padding-bottom:4px;}
+    .nav a{text-decoration:none;padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:12.5px;font-weight:800;white-space:nowrap;}
+    .nav a:hover{border-color:rgba(215,179,90,.35)}
     main{max-width:1080px;margin:0 auto;padding:16px 16px 44px}
     section{scroll-margin-top:120px}
-    .hero{
-      border-radius: var(--r);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.68)),
-        url("assets/sala_vista.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+    .hero{border-radius:var(--r);border:1px solid rgba(255,255,255,.10);box-shadow:var(--shadow);overflow:hidden;
+      background:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.68)), url("assets/sala_vista.jpg");
+      background-size:cover;background-position:center;}
     .heroInner{padding:26px 16px}
     @media(min-width:860px){ .heroInner{padding:34px 26px} }
-    .logoBig{
-      width:84px;height:84px;border-radius:24px;object-fit:cover;
-      border:1px solid rgba(215,179,90,.28);
-      box-shadow: var(--shadow);
-    }
-    .kicker{
-      margin-top:14px;
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(215,179,90,.22);
-      background: rgba(215,179,90,.08);
-      font-size:12px; font-weight:900; letter-spacing:.2px;
-    }
+    .logoBig{width:84px;height:84px;border-radius:24px;object-fit:cover;border:1px solid rgba(215,179,90,.28);box-shadow:var(--shadow);}
+    .kicker{margin-top:14px;display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(215,179,90,.22);background:rgba(215,179,90,.08);font-size:12px;font-weight:900;letter-spacing:.2px;}
     .hero h2{margin:12px 0 6px;font-size:22px;letter-spacing:.6px}
     .hero p{margin:0;color:rgba(244,241,232,.82);font-size:13.5px;line-height:1.35;max-width:60ch}
     .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 14px;
-      border-radius: 16px;
-      font-weight:900;
-      text-decoration:none;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 10px 28px rgba(0,0,0,.35);
-    }
-    .btn.gold{color:#1c1509;background: linear-gradient(135deg, var(--gold), var(--gold2));border:0;}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;font-weight:900;text-decoration:none;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06);box-shadow:0 10px 28px rgba(0,0,0,.35);}
+    .btn.gold{color:#1c1509;background:linear-gradient(135deg,var(--gold),var(--gold2));border:0;}
     .ok{background:#2bd576;color:#04160d;border:0}
     .danger{background:#ff5a6a;color:#1b070a;border:0}
-    .grid{display:grid; gap:12px; margin-top:12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
-    .card{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius: var(--r); padding:14px; box-shadow: var(--shadow);}
-    .card h3{margin:0 0 10px; font-size:14px; letter-spacing:.3px}
-    .muted{color:var(--muted); font-size:13px; line-height:1.35}
-    .list{margin:8px 0 0; padding-left:18px}
-    .list li{margin:7px 0; color:var(--muted)}
-    code{background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); padding:3px 7px; border-radius:10px}
-    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .grid{display:grid;gap:12px;margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);}
+    .card h3{margin:0 0 10px;font-size:14px;letter-spacing:.3px}
+    .muted{color:var(--muted);font-size:13px;line-height:1.35}
+    .list{margin:8px 0 0;padding-left:18px}
+    .list li{margin:7px 0;color:var(--muted)}
+    code{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);padding:3px 7px;border-radius:10px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .chip{padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);font-size:12px;font-weight:800;color:var(--muted)}
-    .split{display:grid; gap:12px; grid-template-columns:1fr}
+    .split{display:grid;gap:12px;grid-template-columns:1fr}
     @media(min-width:900px){ .split{grid-template-columns:1.15fr .85fr} }
-    .imgCard{border-radius: var(--r); overflow:hidden; border:1px solid rgba(255,255,255,.10); min-height:220px; background-size:cover; background-position:center; box-shadow: var(--shadow);}
+    .imgCard{border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.10);min-height:220px;background-size:cover;background-position:center;box-shadow:var(--shadow);}
     .qr img{width:200px;max-width:100%;border-radius:18px;border:1px solid rgba(215,179,90,.25)}
     footer{max-width:1080px;margin:0 auto;padding:18px 16px;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
   </style>
@@ -147,7 +88,6 @@
       <a href="#wifi">WiFi</a>
       <a href="#casa">Casa</a>
       <a href="#reglas">Reglas</a>
-      <a href="#bano">Baños</a>
       <a href="#emergencias">Emergencias</a>
       <a href="#checkout">Check-out</a>
     </div>
@@ -180,9 +120,9 @@
   <section id="soporte" class="grid">
     <div class="card">
       <h3>💬 <span id="supportTitle">Soporte directo</span></h3>
-      <p class="muted" id="supportText">Escríbenos por WhatsApp. Respuesta rápida durante tu estadía.</p>
+      <p class="muted" id="supportText">Escríbenos por WhatsApp solo para temas de la casa durante tu estadía.</p>
       <div class="btns">
-        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20tengo%20una%20consulta:%20">WhatsApp</a>
+        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20tengo%20una%20consulta%20sobre%20la%20casa:%20">WhatsApp</a>
         <button class="btn" onclick="copyText('+593987436423')"><span id="copyPhone">Copiar número</span></button>
       </div>
     </div>
@@ -199,8 +139,8 @@
 
   <section id="llegada" class="split" style="margin-top:12px;">
     <div class="card">
-      <h3>📍 <span id="arrivalTitle">Llegada y Check‑in</span></h3>
-      <p class="muted" id="arrivalText"><b>Check‑in:</b> desde 15:00 • <b>Check‑out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.</p>
+      <h3>📍 <span id="arrivalTitle">Llegada y Check-in</span></h3>
+      <p class="muted" id="arrivalText"><b>Check-in:</b> desde 15:00 • <b>Check-out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.</p>
       <div class="btns">
         <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20mi%20hora%20aproximada%20de%20llegada%20es:%20">🕒 <span id="btnArr">Avisar llegada</span></a>
         <a class="btn" target="_blank" href="https://maps.app.goo.gl/qqcKuewSDVJwxgG9A">🗺️ <span id="btnRoute">Ver ruta</span></a>
@@ -252,22 +192,6 @@
     </div>
   </section>
 
-  <section id="bano" class="split" style="margin-top:12px;">
-    <div class="card">
-      <h3>🌋 <span id="bTitle">Qué hacer en Baños</span></h3>
-      <ul class="list">
-        <li id="b1"><b>Casa del Árbol</b> (Runtún).</li>
-        <li id="b2"><b>Ruta de las Cascadas</b>.</li>
-        <li id="b3"><b>Aguas Termales</b>.</li>
-      </ul>
-      <p class="muted" id="bTip">Si quieres, te sugerimos un orden óptimo según clima y horarios.</p>
-      <div class="btns">
-        <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20quiero%20una%20ruta%20sugerida%20para%20hoy%20seg%C3%BAn%20el%20clima.">🗺️ <span id="bBtn">Pedir ruta</span></a>
-      </div>
-    </div>
-    <div class="imgCard" style="background-image:url('assets/comedor2.jpg')"></div>
-  </section>
-
   <section id="emergencias" class="card" style="margin-top:12px;">
     <h3>🚨 <span id="eTitle">Emergencias</span></h3>
     <p class="muted" id="eText">Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.</p>
@@ -284,7 +208,7 @@
   </section>
 
   <section id="checkout" class="card" style="margin-top:12px;">
-    <h3>✅ <span id="coTitle">Check‑out</span></h3>
+    <h3>✅ <span id="coTitle">Check-out</span></h3>
     <p class="muted" id="coText">Antes de salir (hasta 11:00 a.m.), por favor:</p>
     <ul class="list">
       <li id="co1">Apagar luces y electrodomésticos.</li>
@@ -292,7 +216,7 @@
       <li id="co3">Revisar que llevas todas tus pertenencias.</li>
     </ul>
     <div class="btns">
-      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20ya%20realic%C3%A9%20el%20check-out.%20Gracias.">💬 <span id="coBtn">Avisar check‑out</span></a>
+      <a class="btn gold" target="_blank" href="https://wa.me/593987436423?text=Hola%20Brisa%20Dorada,%20ya%20realic%C3%A9%20el%20check-out.%20Gracias.">💬 <span id="coBtn">Avisar check-out</span></a>
       <a class="btn ok" target="_blank" href="https://es-l.airbnb.com/rooms/1507240965366342816?check_in=2026-03-07&check_out=2026-03-09&guests=1&adults=1&s=67&unique_share_id=b6e6f9b4-98d3-4703-8998-52b263c84902">⭐ <span id="coRev">Dejar reseña</span></a>
     </div>
   </section>
@@ -310,12 +234,12 @@
       heroText:"Tu refugio para descansar, disfrutar y sentirte como en casa. Vista a la montaña, silencio real y ubicación estratégica.",
       btnW:"WhatsApp", btnM:"Ubicación", btnR:"Reseña",
       supportTitle:"Soporte directo",
-      supportText:"Escríbenos por WhatsApp. Respuesta rápida durante tu estadía.",
+      supportText:"Escríbenos por WhatsApp solo para temas de la casa durante tu estadía.",
       copyPhone:"Copiar número",
       qrText:"Escanea para abrir esta guía en tu celular.",
       copyLink:"Copiar link",
-      arrivalTitle:"Llegada y Check‑in",
-      arrivalText:"<b>Check‑in:</b> desde 15:00 • <b>Check‑out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.",
+      arrivalTitle:"Llegada y Check-in",
+      arrivalText:"<b>Check-in:</b> desde 15:00 • <b>Check-out:</b> 11:00. Acceso con caja de llaves en la entrada. Avísanos tu hora aproximada.",
       btnArr:"Avisar llegada", btnRoute:"Ver ruta",
       arr1:"Revisa la ubicación en Maps antes de salir.",
       arr2:"Al entrar, verifica agua caliente y WiFi.",
@@ -324,25 +248,17 @@
       wifiTip:"Tip: para mejor estabilidad, ubícate cerca del router. Si hay intermitencia, reinicia el router y avísanos.",
       homeTitle:"La casa",
       homeText:"Casa completa privada, ambiente familiar y tranquilo, vista a la montaña, cocina equipada y parqueadero.",
-      home1:"Usa con confianza, cuida con cariño y deja todo limpio.",
-      home2:"Botiquín y extintor: en la cocina.",
       rulesTitle:"Reglas de la casa",
       rulesText:"Cuidamos a nuestros vecinos. Respeta horarios de descanso para una estadía excelente.",
-      bTitle:"Qué hacer en Baños",
-      b1:"Casa del Árbol (Runtún).",
-      b2:"Ruta de las Cascadas.",
-      b3:"Aguas Termales.",
-      bTip:"Si quieres, te sugerimos un orden óptimo según clima y horarios.",
-      bBtn:"Pedir ruta",
       eTitle:"Emergencias",
       eText:"Ante cualquier emergencia, prioriza seguridad y llama al número correspondiente.",
       eHosp:"Hospital", eFire:"Bomberos",
-      coTitle:"Check‑out",
+      coTitle:"Check-out",
       coText:"Antes de salir (hasta 11:00 a.m.), por favor:",
       co1:"Apagar luces y electrodomésticos.",
       co2:"Dejar las llaves en la caja de la entrada.",
       co3:"Revisar que llevas todas tus pertenencias.",
-      coBtn:"Avisar check‑out",
+      coBtn:"Avisar check-out",
       coRev:"Dejar reseña",
       foot:"Brisa Dorada • Estándar boutique con operación eficiente"
     },
@@ -353,12 +269,12 @@
       heroText:"Your place to rest, enjoy and feel at home. Mountain views, true quietness and a strategic location.",
       btnW:"WhatsApp", btnM:"Location", btnR:"Review",
       supportTitle:"Direct support",
-      supportText:"Message us on WhatsApp. Fast response during your stay.",
+      supportText:"Message us on WhatsApp only for home-related topics during your stay.",
       copyPhone:"Copy number",
       qrText:"Scan to open this guide on your phone.",
       copyLink:"Copy link",
-      arrivalTitle:"Arrival & Check‑in",
-      arrivalText:"<b>Check‑in:</b> from 3:00 p.m. • <b>Check‑out:</b> 11:00 a.m. Access via entrance key lockbox. Please share your ETA.",
+      arrivalTitle:"Arrival & Check-in",
+      arrivalText:"<b>Check-in:</b> from 3:00 p.m. • <b>Check-out:</b> 11:00 a.m. Access via entrance key lockbox. Please share your ETA.",
       btnArr:"Share ETA", btnRoute:"View route",
       arr1:"Open the location in Maps before you leave.",
       arr2:"After entry, check hot water and WiFi.",
@@ -367,25 +283,17 @@
       wifiTip:"Tip: for best stability, stay closer to the router. If unstable, restart it and message us.",
       homeTitle:"The home",
       homeText:"Entire private home, calm family vibe, mountain view, equipped kitchen and parking.",
-      home1:"Use everything with confidence, take care of it, and leave it clean.",
-      home2:"First aid kit & extinguisher: in the kitchen.",
       rulesTitle:"House rules",
       rulesText:"We care about our neighbors. Please respect quiet hours for an excellent stay.",
-      bTitle:"Things to do in Baños",
-      b1:"Tree House (Runtún).",
-      b2:"Waterfall Route.",
-      b3:"Thermal pools.",
-      bTip:"If you want, we can suggest the best order based on weather and time.",
-      bBtn:"Ask for a route",
       eTitle:"Emergencies",
       eText:"In any emergency, prioritize safety and call the appropriate number.",
       eHosp:"Hospital", eFire:"Firefighters",
-      coTitle:"Check‑out",
+      coTitle:"Check-out",
       coText:"Before leaving (until 11:00 a.m.), please:",
       co1:"Turn off lights and appliances.",
       co2:"Drop the keys in the entrance lockbox.",
       co3:"Make sure you have all your belongings.",
-      coBtn:"Notify check‑out",
+      coBtn:"Notify check-out",
       coRev:"Leave a review",
       foot:"Brisa Dorada • Boutique standard with efficient operations"
     }
@@ -426,13 +334,6 @@
 
     document.getElementById("rulesTitle").textContent = x.rulesTitle;
     document.getElementById("rulesText").textContent = x.rulesText;
-
-    document.getElementById("bTitle").textContent = x.bTitle;
-    document.getElementById("b1").innerHTML = "<b>" + x.b1.split(" (")[0] + "</b>" + (x.b1.includes("(") ? " ("+x.b1.split(" (")[1] : "");
-    document.getElementById("b2").innerHTML = "<b>" + x.b2.replace(".","") + "</b>.";
-    document.getElementById("b3").innerHTML = "<b>" + x.b3.replace(".","") + "</b>.";
-    document.getElementById("bTip").textContent = x.bTip;
-    document.getElementById("bBtn").textContent = x.bBtn;
 
     document.getElementById("eTitle").textContent = x.eTitle;
     document.getElementById("eText").textContent = x.eText;
